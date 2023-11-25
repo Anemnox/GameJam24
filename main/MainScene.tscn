@@ -1,0 +1,57 @@
+[gd_scene load_steps=6 format=3 uid="uid://dvgjgo15mejd5"]
+
+[ext_resource type="Script" path="res://main/MainScene.gd" id="1_taeg8"]
+[ext_resource type="PackedScene" uid="uid://cobfhoumngplw" path="res://levels/LevelOne.tscn" id="2_c4he4"]
+[ext_resource type="PackedScene" uid="uid://pqhskrc7sus3" path="res://assets/player/Player.tscn" id="3_b84rs"]
+[ext_resource type="PackedScene" uid="uid://nqwpeea32sbq" path="res://assets/jars/Jars.tscn" id="4_bem7a"]
+[ext_resource type="PackedScene" uid="uid://bovl8whpndnfl" path="res://ui/jar_open/JarOpen.tscn" id="5_aocm4"]
+
+[node name="Main" type="Node2D"]
+y_sort_enabled = true
+position = Vector2(-2, 1)
+script = ExtResource("1_taeg8")
+
+[node name="LevelOne" parent="." instance=ExtResource("2_c4he4")]
+y_sort_enabled = true
+
+[node name="Player" parent="." instance=ExtResource("3_b84rs")]
+position = Vector2(224, 123)
+
+[node name="Camera2D" type="Camera2D" parent="Player"]
+zoom = Vector2(5, 5)
+limit_left = 0
+limit_top = 0
+limit_right = 512
+limit_bottom = 384
+
+[node name="Jars" parent="." node_paths=PackedStringArray("game") groups=["interactable"] instance=ExtResource("4_bem7a")]
+y_sort_enabled = true
+layer_0/y_sort_enabled = true
+layer_0/tile_data = PackedInt32Array(327686, 131072, 1, 393222, 131072, 1, 458759, 131072, 1, 458760, 131072, 1, 524297, 131072, 1, 524298, 131072, 1, 589835, 131072, 1, 589836, 131072, 2, 655373, 131072, 2, 655374, 131072, 1, 720911, 196608, 1, 720912, 196608, 1, 786449, 131072, 1, 786450, 196608, 1, 851987, 196608, 1, 851988, 131072, 1, 786452, 131072, 1, 720917, 196608, 1, 786453, 131072, 1, 851989, 196608, 1, 917526, 131072, 1, 983062, 196608, 1, 1048598, 196608, 1, 1179661, 131072, 1, 524304, 196608, 1, 589840, 196608, 1, 655376, 196608, 1, 589838, 65536, 1, 589839, 65536, 1, 655375, 65536, 1, 720908, 196608, 1, 655372, 196608, 1, 786439, 196608, 1, 786440, 196608, 1, 786441, 196608, 1, 720906, 196608, 1, 720907, 196608, 1, 655371, 196608, 1, 655370, 196608, 1, 589833, 196608, 1, 589832, 196608, 1, 655369, 196608, 1, 720909, 196608, 1, 720910, 196608, 1, 786446, 196608, 1, 851982, 196608, 1, 917519, 196608, 1, 917520, 196608, 1, 851985, 196608, 1, 917522, 196608, 1, 917523, 196608, 1, 983060, 196608, 1, 983061, 196608, 1, 917525, 196608, 1, 917524, 196608, 1, 720913, 196608, 1, 786443, 196608, 1, 786442, 196608, 1, 851977, 196608, 1, 851978, 196608, 1, 851979, 196608, 1, 917516, 196608, 1, 917517, 196608, 1, 917518, 196608, 1, 983057, 196608, 1, 983058, 196608, 1, 983059, 196608, 1, 1048599, 196608, 1, 983063, 196608, 1, 786454, 196608, 1, 720918, 196608, 1, 655381, 196608, 1, 655380, 196608, 1, 655379, 196608, 1)
+game = NodePath("..")
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+scale = Vector2(4, 4)
+transform = Transform2D(4, 0, 0, 4, 0, 0)
+
+[node name="PopUps" type="Control" parent="CanvasLayer"]
+layout_mode = 3
+anchors_preset = 0
+offset_left = -2.0
+offset_top = 1.0
+offset_right = -2.0
+offset_bottom = 1.0
+
+[node name="JarOpen" parent="CanvasLayer" instance=ExtResource("5_aocm4")]
+anchors_preset = -1
+anchor_left = 0.118273
+anchor_top = 0.161265
+anchor_right = 1.11827
+anchor_bottom = 0.161265
+offset_left = 11.75
+offset_top = -5.49999
+offset_right = 11.75
+offset_bottom = -5.49999
+grow_vertical = 0
+scale = Vector2(1, 0.995815)
+size_flags_horizontal = 4

@@ -1,0 +1,61 @@
+[gd_scene load_steps=7 format=3 uid="uid://cdpl0etgq4wst"]
+
+[ext_resource type="Script" path="res://ui/popup/PopUpButton.gd" id="1_mikod"]
+[ext_resource type="Texture2D" uid="uid://bgqs6t5ct2k5h" path="res://ui/popup/ad_spr_strip3.png" id="2_jto2k"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_8peds"]
+atlas = ExtResource("2_jto2k")
+region = Rect2(64, 0, 64, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_dgeqg"]
+atlas = ExtResource("2_jto2k")
+region = Rect2(0, 0, 64, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_kpdja"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_8peds")
+}],
+"loop": true,
+"name": &"click",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_dgeqg")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_spv1m"]
+size = Vector2(20, 9)
+
+[node name="AnnoyingPopUp" type="PanelContainer"]
+z_index = 20
+texture_filter = 1
+anchors_preset = -1
+anchor_left = -0.027
+anchor_top = -0.026
+anchor_right = 0.027
+anchor_bottom = 0.024
+offset_left = 31.104
+offset_top = 16.848
+offset_right = -31.104
+offset_bottom = -15.552
+script = ExtResource("1_mikod")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+position = Vector2(7.15256e-07, 7.7486e-07)
+sprite_frames = SubResource("SpriteFrames_kpdja")
+
+[node name="PopUpButton" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="PopUpButton"]
+position = Vector2(7.15256e-07, 7)
+shape = SubResource("RectangleShape2D_spv1m")
+
+[connection signal="mouse_entered" from="PopUpButton" to="." method="_on_Area2D_mouse_entered"]
+[connection signal="mouse_exited" from="PopUpButton" to="." method="_on_Area2D_mouse_exited"]
