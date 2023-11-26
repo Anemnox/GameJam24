@@ -13,10 +13,10 @@ func _ready():
 	await get_tree().create_timer(3).timeout
 	show_jar("I wonder what they do...")
 	await get_tree().create_timer(3).timeout
-	show_jar("(W, A, S, D) to move. E to interact with jars!")
+	show_jar("(W, A, S, D) to move. E to interact with jars.")
 	$Player.disabled = false
 	await get_tree().create_timer(3).timeout
-	show_jar("Collect all the jars!")
+	show_jar("Whatever you do, DON'T open any jars!")
 	await get_tree().create_timer(3).timeout
 	pass # Replace with function body.
 
