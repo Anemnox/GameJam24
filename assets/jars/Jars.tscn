@@ -1,7 +1,9 @@
-[gd_scene load_steps=5 format=3 uid="uid://nqwpeea32sbq"]
+[gd_scene load_steps=7 format=3 uid="uid://nqwpeea32sbq"]
 
 [ext_resource type="Texture2D" uid="uid://bfvobwwoll8ed" path="res://assets/jars/jars_spr.png" id="1_kyuim"]
 [ext_resource type="Script" path="res://assets/jars/Jars.gd" id="2_lksrb"]
+[ext_resource type="AudioStream" uid="uid://dn08rj8jtige4" path="res://sounds/Fancy_Jam_Open.wav" id="3_t72jx"]
+[ext_resource type="AudioStream" uid="uid://drteqj8c3fmr1" path="res://sounds/Jam_Open.wav" id="4_2al1w"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_db0x6"]
 texture = ExtResource("1_kyuim")
@@ -102,3 +104,11 @@ visible = false
 position = Vector2(1, 1)
 color = Color(1, 0, 0, 1)
 polygon = PackedVector2Array(0, -1, -1, -1, -1, 0, 0, 0)
+
+[node name="SpecialSound" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("3_t72jx")
+volume_db = -10.0
+
+[node name="OpenSound" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("4_2al1w")
+volume_db = -10.0

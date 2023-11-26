@@ -16,10 +16,10 @@ script = ExtResource("1_taeg8")
 y_sort_enabled = true
 
 [node name="Player" parent="." instance=ExtResource("3_b84rs")]
-position = Vector2(326, 183)
+position = Vector2(584, 375)
 
 [node name="Camera2D" type="Camera2D" parent="Player"]
-zoom = Vector2(5, 5)
+zoom = Vector2(4, 4)
 limit_left = 0
 limit_top = 0
 limit_right = 1216
@@ -28,7 +28,7 @@ limit_bottom = 832
 [node name="Jars" parent="." node_paths=PackedStringArray("game") groups=["interactable"] instance=ExtResource("4_bem7a")]
 y_sort_enabled = true
 layer_0/y_sort_enabled = true
-layer_0/tile_data = PackedInt32Array(262148, 0, 3, 1114126, 131072, 0, 1441800, 131072, 0, 983054, 131072, 3, 917530, 131072, 3, 393241, 131072, 3, 786452, 131072, 2, 2359306, 196608, 1, 2293775, 196608, 0, 1245219, 131072, 3, 1769511, 131072, 3, 2097197, 131072, 3, 2883626, 131072, 3, 2883642, 196608, 1, 2883643, 196608, 1, 2883647, 196608, 1, 2883648, 196608, 1, 1179705, 65536, 3, 1638466, 131072, 3, 458799, 0, 2, 327748, 131072, 3, 1048594, 65536, 3, 1048595, 0, 3)
+layer_0/tile_data = PackedInt32Array(196611, 0, 3, 917516, 131072, 0, 1245192, 131072, 0, 327701, 131072, 3, 786444, 131072, 3, 851998, 131072, 3, 655377, 131072, 2, 1310753, 131072, 3, 1638439, 131072, 3, 2424868, 131072, 3, 2031630, 196608, 0, 2162698, 196608, 1, 2162735, 196608, 1, 2162734, 196608, 1, 2162739, 196608, 1, 2162740, 196608, 1, 917552, 65536, 3, 1245239, 131072, 3, 131130, 131072, 3, 327721, 0, 2)
 game = NodePath("..")
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
@@ -44,10 +44,10 @@ offset_right = -2.0
 offset_bottom = 1.0
 
 [node name="JamIndicator" parent="CanvasLayer" instance=ExtResource("5_skfyb")]
-offset_left = 224.75
-offset_top = 0.25
-offset_right = 224.75
-offset_bottom = 0.25
+offset_left = 149.25
+offset_right = -570.75
+offset_bottom = -480.0
+scale = Vector2(0.5, 0.5)
 
 [node name="JarOpen" parent="CanvasLayer" instance=ExtResource("5_aocm4")]
 anchors_preset = -1
@@ -55,10 +55,10 @@ anchor_left = 0.118273
 anchor_top = 0.161265
 anchor_right = 1.11827
 anchor_bottom = 0.161265
-offset_left = 11.75
-offset_top = -5.49999
-offset_right = 11.75
-offset_bottom = -5.49999
+offset_left = 5.34343
+offset_top = 2.59281
+offset_right = -714.654
+offset_bottom = 2.59281
 grow_vertical = 0
-scale = Vector2(1, 0.995815)
+scale = Vector2(0.5, 0.5)
 size_flags_horizontal = 4

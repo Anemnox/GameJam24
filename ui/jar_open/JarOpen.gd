@@ -18,7 +18,7 @@ func show_jar(text = ""):
 	$AnimatedSprite2D.play("popup")
 	curr += 1
 	var now = curr
-	await get_tree().create_timer(1).timeout
+	await get_tree().create_timer(2).timeout
 	hide_jar(now)
 
 

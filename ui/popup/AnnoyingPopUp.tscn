@@ -1,7 +1,8 @@
-[gd_scene load_steps=7 format=3 uid="uid://cdpl0etgq4wst"]
+[gd_scene load_steps=8 format=3 uid="uid://cdpl0etgq4wst"]
 
 [ext_resource type="Script" path="res://ui/popup/PopUpButton.gd" id="1_mikod"]
 [ext_resource type="Texture2D" uid="uid://tx7cjmkdp4g3" path="res://ui/popup/ad_spr_strip2.png" id="2_nt5u6"]
+[ext_resource type="AudioStream" uid="uid://ct1qlq76q2vim" path="res://sounds/erro.mp3" id="3_eu31b"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_427me"]
 atlas = ExtResource("2_nt5u6")
@@ -57,6 +58,10 @@ animation = &"click"
 [node name="CollisionShape2D" type="CollisionShape2D" parent="PopUpButton"]
 position = Vector2(7.15256e-07, 7)
 shape = SubResource("RectangleShape2D_spv1m")
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("3_eu31b")
+volume_db = -10.0
 
 [connection signal="mouse_entered" from="PopUpButton" to="." method="_on_Area2D_mouse_entered"]
 [connection signal="mouse_exited" from="PopUpButton" to="." method="_on_Area2D_mouse_exited"]

@@ -8,23 +8,42 @@ var collected = 0
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	$Player.tilemap = $LevelOne/Floor
+	$Player.disabled = true
+	show_jar("A mysterious island with curious jars...")
+	await get_tree().create_timer(3).timeout
+	show_jar("I wonder what they do...")
+	await get_tree().create_timer(3).timeout
+	show_jar("(W, A, S, D) to move. E to interact with jars!")
+	$Player.disabled = false
+	await get_tree().create_timer(3).timeout
+	show_jar("Collect all the jars!")
+	await get_tree().create_timer(3).timeout
 	pass # Replace with function body.
 
 
 func spawn_popups():
 	var mid = Vector2(100, 50)
 	
-	for n in 10:
+	for n in 6:
 		var temp = popup_inst.instantiate()
+		temp.position = mid + Vector2(randi_range(-50, 50), randi_range(-50, 50))
 		
-		temp.position = mid + Vector2(randi_range(-20, 85), randi_range(-20, 80))
-		
+		await get_tree().create_timer(0.1).timeout
 		$CanvasLayer/PopUps.add_child(temp)
+
+func end_game():
+	$Player.disabled = true
+	await get_tree().create_timer(2).timeout
+	show_jar("This is the final jar....")
+	await get_tree().create_timer(2).timeout
+	get_tree().change_scene_to_packed(load("res://ui/EndScreen.tscn"))
 
 
 func add_jam():
 	collected += 1
 	$CanvasLayer/JamIndicator.add_jam()
+	if collected == total_jam:
+		end_game()
 
 
 func show_jar(text=""):
@@ -60,13 +79,13 @@ func swap(tile1, tile2):
 
 func freeze_map():
 	swap(TILES.SHALLOW_WATER, TILES.ICE)
-	swap(TILES.LAVA, TILES.DIRT)
+	#swap(TILES.LAVA, TILES.DIRT)
 	pass
 
 
 func burn_map():
 	swap(TILES.DIRT, TILES.LAVA)
-	swap(TILES.ICE, TILES.SHALLOW_WATER)
+	#swap(TILES.ICE, TILES.SHALLOW_WATER)
 	pass
 
 

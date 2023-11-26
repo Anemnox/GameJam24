@@ -46,47 +46,56 @@ func interact(point):
 func error(point):
 	game.show_jar("You've opened a Jar of Jam!")
 	print("No action for this yet!")
+	$OpenSound.play()
 
 
 func spawn_water(point):
 	game.show_jar("You've opened a jar of jam!")
+	$SpecialSound.play()
 	pass
 
 
 func freeze(point):
 	game.show_jar("You've opened a jar of jam icecream?!?! You start feeling a bit cold...")
 	game.freeze_map()
+	$SpecialSound.play()
 
 
 func grow_bushes(point):
 	game.show_jar("Yuck! You've opened a jam that tastes like vegetables!")
 	game.grow_map()
+	$SpecialSound.play()
 
 
 func lava_jam(point):
 	game.show_jar("You've opened some spicy jam! Things look like they're burning up!")
 	game.burn_map()
+	$SpecialSound.play()
 
 
 func smol_jam(point):
 	game.show_jar("You've opened some jar that makes the world bigger!")
 	game.set_player_style("_smol")
+	$SpecialSound.play()
 
 
 func hat_jam(point):
 	game.show_jar("You've found a hat in a jar")
 	game.set_player_style("_hat")
+	$SpecialSound.play()
 
 
 
 func lose_control(point):
 	game.show_jar("You've opened a jar of jam that makes you dizzy...")
 	game.disorient_player()
+	$SpecialSound.play()
 
 
 func popup(point):
 	game.show_jar("You've opened a strange jar... You start to hallucinate")
 	game.spawn_popups()
+	$SpecialSound.play()
 
 
 func remove_jar(point):

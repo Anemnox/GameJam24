@@ -2,6 +2,10 @@ extends PanelContainer
 
 var mouse_inside_area = false
 
+func _ready():
+	$AudioStreamPlayer.play()
+	pass	
+
 func _on_Area2D_mouse_entered():
 	mouse_inside_area = true
 

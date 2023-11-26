@@ -38,6 +38,8 @@ const ICE_TYPE = Vector2i(3, 2)
 var disoriented = false
 var count_down = 0
 
+var disabled = false
+
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	animation.play("walk_down" + animation_style)
@@ -47,7 +49,7 @@ func _ready():
 
 
 func handle_input():
-	if moving:
+	if moving or disabled:
 		return
 	if Input.is_action_just_pressed("interact"):
 		open_jar()
@@ -63,10 +65,6 @@ func handle_input():
 
 
 func move(dir):
-	if disoriented:
-		count_down -= 1
-		if count_down <= 0:
-			disoriented = false
 	direction = dir
 	move_ray.target_position = inputs[dir] * tile_size
 	detect_ray.target_position = inputs[dir] * tile_size
@@ -74,6 +72,10 @@ func move(dir):
 	#animation.stop()
 	move_ray.force_raycast_update()
 	if !move_ray.is_colliding():
+		if disoriented:
+			count_down -= 1
+			if count_down <= 0:
+				disoriented = false
 		#position += inputs[dir] * tile_size
 		var tween = create_tween()
 		tween.tween_property(self, "position",
