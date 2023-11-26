@@ -1,21 +1,21 @@
 [gd_scene load_steps=7 format=3 uid="uid://cdpl0etgq4wst"]
 
 [ext_resource type="Script" path="res://ui/popup/PopUpButton.gd" id="1_mikod"]
-[ext_resource type="Texture2D" uid="uid://bgqs6t5ct2k5h" path="res://ui/popup/ad_spr_strip3.png" id="2_jto2k"]
+[ext_resource type="Texture2D" uid="uid://tx7cjmkdp4g3" path="res://ui/popup/ad_spr_strip2.png" id="2_nt5u6"]
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_8peds"]
-atlas = ExtResource("2_jto2k")
+[sub_resource type="AtlasTexture" id="AtlasTexture_427me"]
+atlas = ExtResource("2_nt5u6")
 region = Rect2(64, 0, 64, 32)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_dgeqg"]
-atlas = ExtResource("2_jto2k")
+[sub_resource type="AtlasTexture" id="AtlasTexture_4q1sa"]
+atlas = ExtResource("2_nt5u6")
 region = Rect2(0, 0, 64, 32)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_kpdja"]
 animations = [{
 "frames": [{
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_8peds")
+"texture": SubResource("AtlasTexture_427me")
 }],
 "loop": true,
 "name": &"click",
@@ -23,7 +23,7 @@ animations = [{
 }, {
 "frames": [{
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_dgeqg")
+"texture": SubResource("AtlasTexture_4q1sa")
 }],
 "loop": true,
 "name": &"default",
@@ -50,6 +50,7 @@ script = ExtResource("1_mikod")
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 position = Vector2(7.15256e-07, 7.7486e-07)
 sprite_frames = SubResource("SpriteFrames_kpdja")
+animation = &"click"
 
 [node name="PopUpButton" type="Area2D" parent="."]
 

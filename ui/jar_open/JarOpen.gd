@@ -7,11 +7,28 @@ func _ready():
 	$AnimatedSprite2D.visible = false
 	pass # Replace with function body.
 
-func show_jar():
-	$AnimatedSprite2D.visible = true
-	$AnimatedSprite2D.play("popup")
 
-func hide_jar():
-	$AnimatedSprite2D.play("dip")
+var curr = 0
+
+
+func show_jar(text = ""):
+	$AnimatedSprite2D.visible = true
+	$RichTextLabel.text = text
+	$RichTextLabel.visible = true
+	$AnimatedSprite2D.play("popup")
+	curr += 1
+	var now = curr
 	await get_tree().create_timer(1).timeout
+	hide_jar(now)
+
+
+func hide_jar(num):
+	if curr != num:
+		return
+	$AnimatedSprite2D.play("dip")
+	$RichTextLabel.visible = false
+	await get_tree().create_timer(1).timeout
+	if curr != num:
+		return
 	$AnimatedSprite2D.visible = false
+	

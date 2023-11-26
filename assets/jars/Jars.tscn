@@ -98,6 +98,7 @@ format = 2
 script = ExtResource("2_lksrb")
 
 [node name="Polygon2D" type="Polygon2D" parent="."]
+visible = false
 position = Vector2(1, 1)
 color = Color(1, 0, 0, 1)
 polygon = PackedVector2Array(0, -1, -1, -1, -1, 0, 0, 0)
